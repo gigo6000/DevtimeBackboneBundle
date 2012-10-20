@@ -1,4 +1,4 @@
-# DevtimeBackboneBundle [![Build Status](https://secure.travis-ci.org/codebrew/backbone-rails.png)](http://travis-ci.org/codebrew/backbone-rails)
+# DevtimeBackboneBundle 
 
 Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1
 
@@ -21,6 +21,7 @@ Add DevtimeBackboneBundle in your composer.json:
         "devtime/backbone-bundle": "*"
     }
 }
+```
 
 Now tell composer to download the bundle by running the command:
 
@@ -50,7 +51,7 @@ public function registerBundles()
 ### Layout 
 
 ``` bash
-php php app/console backbone:install AcmeDemoBundle
+php app/console backbone:install AcmeDemoBundle
 ```
 
 Running `php app/console backbone:install` will create the following directory structure under `Resources/js/`:
