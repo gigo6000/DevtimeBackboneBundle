@@ -1,4 +1,4 @@
-# DevtimeBackboneBundle 
+# DevtimeBackboneBundle [![Build Status](https://secure.travis-ci.org/gigo6000/DevtimeBackboneBundle.png?branch=master)](http://travis-ci.org/gigo6000/DevtimeBackboneBundle)
 
 Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1
 
