@@ -1,4 +1,4 @@
-window.app = {
+window.App = {
   Models: {},
   Collections: {},
   Views: {},
@@ -9,5 +9,5 @@ window.app = {
 };
 
 $(document).ready(function(){
-  app.init();
+  App.init();
 });
