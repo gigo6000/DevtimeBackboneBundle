@@ -4,12 +4,12 @@ Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1
 
 Follow [@gigo6000 on Twitter](http://twitter.com/gigo6000). Tweet any questions or suggestions you have about the project.
 
-## Symfony setup
+## What you need 
 This bundle requires the use of Symfony 2.1.1  and greater
 
 The latest versions of jquery, underscore.js and backbone.js are included. 
     
-### Installation
+## Installation
 
 ### Step 1: Download DevtimeBackboneBundle using composer
 
@@ -54,7 +54,7 @@ public function registerBundles()
 php app/console backbone:install AcmeDemoBundle
 ```
 
-Running `php app/console backbone:install` will create the following directory structure under `Resources/js/`:
+This will create the following directory structure under `Resources/public/js/`:
   
 ``` bash
     routers/
@@ -71,9 +71,21 @@ After this you need to install (publish) your assets
 ``` bash
 php app/console assets:install
 ```
+And you should see all the files now under your web dir ready for your template!  `web/bundles/acmedemo/js/`
+
+``` 
+// src/Acme/DemoBundle/Resources/views/layout.html.twig
+        {% block javascripts %}
+            <script src="{{ asset('/bundles/acmedemo/js/jquery.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/backbone.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/app.js') }}" type="text/javascript"></script>
+        {% endblock %}
+```
+After putting this in your template and reloading the page you should see a popup message saying: "Hellow from Backbone!"
 
 ## Scaffolding 
-BackboneBundle provides a simple generator to help you get started using backbone.js with Symfony2.
+BackboneBundle provides a simple generator to help you get started with your backbone.js objects 
 The generator will only create client side code (javascript).
 
 ``` bash
