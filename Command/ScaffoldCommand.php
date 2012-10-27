@@ -49,7 +49,7 @@ class ScaffoldCommand extends Command
              switch ($file) {
                case 'collection.js':
                  $class_name = 'App.Collections.' . ucfirst($inflector->pluralize($entity));
-                 $output_content = sprintf($file_content, $entity,$entity);
+                 $output_content = sprintf($file_content, $class_name,$entity);
                  $file_path = $dir . '/' .$inflector->pluralize($entity). '.js';
                  break;
                case 'model.js':
