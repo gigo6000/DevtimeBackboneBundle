@@ -64,7 +64,7 @@ class ScaffoldCommand extends Command
                  break;
                case 'view.js':
                  $class_name = 'App.Views.' . ucfirst($inflector->pluralize($entity)) . 'Index';
-                 $output_content = sprintf($file_content, $entity);
+                 $output_content = sprintf($file_content, $class_name);
                  $view_dir = $public_dir . '/' . $dir . '/' . $inflector->pluralize($entity);
                  if (!is_dir($view_dir)) 
                    mkdir($view_dir, 0777, true);
