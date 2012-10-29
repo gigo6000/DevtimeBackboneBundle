@@ -2,7 +2,7 @@
     "name": "devtime/backbone-bundle",
     "type": "symfony-bundle",
     "description": "Easily setup and use backbone.js with Symfony2",
-    "keywords": ["backbone","backbone.js", "underscore"],
+    "keywords": ["backbone","backbone.js", "underscore", "symfony2"],
     "homepage": "http://github.com/gigo6000/DevtimeBackboneBundle",
     "license": "MIT",
     "authors": [
@@ -13,7 +13,12 @@
     ],
     "require": {
         "symfony/framework-bundle": ">=2.1.1",
-        "symfony/finder": "2.1.*"
+        "symfony/finder": "2.1.*",
+        "symfony/console": "2.1.*",
+        "symfony/class-loader": "2.1.*",
+        "symfony/yaml": "2.1.*",
+        "symfony/browser-kit": "2.1.*",
+        "symfony/form": "2.1.*"
     },
     "autoload": {
         "psr-0": { "Devtime\\BackboneBundle": "" }
