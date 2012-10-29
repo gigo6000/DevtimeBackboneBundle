@@ -12,6 +12,8 @@ use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 
+require_once(__DIR__ . "/../../../../../../../app/AppKernel.php");
+
 class InstallCommandTest extends WebTestCase 
 {
     private $path;
@@ -24,15 +26,14 @@ class InstallCommandTest extends WebTestCase
         $this->path = sys_get_temp_dir();
         $this->bundle_name = 'DevtimeBackboneBundle';
 
-        static::$kernel = static::createKernel();
-        static::$kernel->boot();
     }
 
     public function testExecute()
     {
 
-        $application = new Application(static::$kernel);
-        $application->add(new InstallCommand());
+        $kernel = new \AppKernel("test",true); 
+        $kernel->boot();
+        $application = new Application($kernel);
 
         $command = $application->find('backbone:install');
         $commandTester = new CommandTester($command);
