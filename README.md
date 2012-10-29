@@ -92,7 +92,10 @@ The generator will only create client side code (javascript).
 php app/console backbone:scaffold AcmeDemoBundle model
 ```
     
-This generator creates a router, views, templates, model and collection to create a simple crud single page app
+This generator creates skeleton router, view, model and collection classes
 
 ## Example Usage
 
+## Sample App
+
+This simple app was created with this bundle: https://github.com/gigo6000/DevtimeRafflerBundle
