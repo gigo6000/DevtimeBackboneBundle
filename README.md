@@ -95,7 +95,51 @@ php app/console backbone:scaffold AcmeDemoBundle model
 This generator creates skeleton router, view, model and collection classes
 
 ## Example Usage
+``` bash
+php app/console backbone:install AcmeDemoBundle
+```
+``` bash
+Installing backbone for bundle "AcmeDemoBundle"
+create /Resources/public/js/collections
+create /Resources/public/js/models
+create /Resources/public/js/routers
+create /Resources/public/js/views
+create /Resources/public/js/templates
+create /Resources/public/js/backbone.js
+create /Resources/public/js/underscore.js
+create /Resources/public/js/app.js
+create /Resources/public/js/jquery.min.js
+```
 
+``` bash
+php app/console backbone:scaffold AcmeDemoBundle entry
+```
+``` bash
+Generating backbone scaffold classes for bundle "AcmeDemoBundle"
+create /Resources/public/js/models/entry.js
+create /Resources/public/js/collections/entries.js
+create /Resources/public/js/routers/entries_router.js
+create /Resources/public/js/views/entries/entries_index.js
+```
+
+### Output dir structure
+``` bash
+src/Acme/DemoBundle/Resources/public/js/
+|-- app.js
+|-- backbone.js
+|-- collections
+|   `-- entries.js
+|-- jquery.min.js
+|-- models
+|   `-- entry.js
+|-- routers
+|   `-- entries_router.js
+|-- templates
+|-- underscore.js
+`-- views
+    `-- entries
+        `-- entries_index.js
+```
 ## Sample App
 
 This simple app was created with this bundle: https://github.com/gigo6000/DevtimeRafflerBundle
