@@ -1,4 +1,10 @@
 <?php
+/*
+ *
+ * @author Carlos Mafla <gigo6000@hotmail.com>
+ *
+ */
+
 namespace Devtime\BackboneBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -14,7 +20,7 @@ class ScaffoldCommand extends Command
     {
         $this
             ->setName('backbone:scaffold')
-            ->setDescription('Generate backbone.js scaffold classes')
+            ->setDescription('Generates backbone.js scaffold classes')
             ->addArgument('bundle', InputArgument::REQUIRED, 'A bundle name, remember to use full namespace name ex: DevtimeBackboneBundle')
             ->addArgument('entity', InputArgument::REQUIRED, 'A entity name ex: item')
 
