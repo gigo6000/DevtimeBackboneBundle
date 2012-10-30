@@ -1,8 +1,11 @@
 <?php
 /*
+ * This file is part of the DevtimeBacboneBundle package.
  *
- * @author Carlos Mafla <gigo6000@hotmail.com>
+ * (c) Carlos Mafla <gigo6000@hotmail.com>
  *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Devtime\BackboneBundle\Command;
@@ -20,7 +23,7 @@ class InstallCommand extends Command
         $this
             ->setName('backbone:install')
             ->setDescription('Creates structure for your backbone.js project')
-            ->addArgument('bundle_name', InputArgument::REQUIRED, 'A bundle name, remember to use the company+bundlename')
+            ->addArgument('bundle_name', InputArgument::REQUIRED, 'A bundle name, remember to use full namespace name ex: DevtimeBackboneBundle')
             ->addOption('path', null, InputOption::VALUE_REQUIRED, 'The path where to install backbone when it cannot be guessed')
 
         ;
