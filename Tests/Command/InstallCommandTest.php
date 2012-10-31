@@ -11,42 +11,52 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-
-class InstallCommandTest extends WebTestCase 
+class InstallCommandTest extends \PHPUnit_Framework_TestCase 
 {
-    private $path;
-    private $bundle_name;
-    private $application;
 
 
-    protected function setUp()
-    {  
-        $this->path = sys_get_temp_dir();
-        $this->bundle_name = 'DevtimeBackboneBundle';
+    public function setUp()
+    {   
+        $this->originDir = __DIR__ . '/../../Resources/files/js/';
+        $this->targetDir = sys_get_temp_dir();
 
-    }
+        $this->kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
 
-    public function testExecute()
+        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle->expects($this->any())
+            ->method('getName')
+            ->will($this->returnValue('AcmeDemoBundle'));
+
+        $bundle->expects($this->any())
+            ->method('getPath')
+            ->will($this->returnValue($this->targetDir));
+
+        $this->kernel->expects($this->any())
+            ->method('getBundle')
+            ->will($this->returnValue($bundle));
+
+    }  
+
+    public function testInstallCommandExecute()
     {
 
-        /*
-        TODO: figure out how to create a test kernel
+        $this->kernel->expects($this->any())
+            ->method('locateResource')
+            ->will($this->returnValue($this->originDir.'/backbone.js'));
 
-        $kernel = new \AppKernel("test",true); 
-        $kernel->boot();
-        $application = new Application($kernel);
+        $application = new Application($this->kernel);
+        $application->add(new InstallCommand());
 
         $command = $application->find('backbone:install');
         $commandTester = new CommandTester($command);
 
         $commandTester->execute(
-            array('command' => $command->getName(),'bundle_name' => $this->bundle_name, '--path' => $this->path)
+            array('command' => $command->getName(),'bundle_name' => 'AcmeDemoBundle')
         );
 
         $this->assertRegExp('/create/', $commandTester->getDisplay());
-        */
 
-        $this->assertTrue(true);
+        //$this->assertTrue(true);
     }
 
 }

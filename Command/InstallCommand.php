@@ -10,14 +10,16 @@
 
 namespace Devtime\BackboneBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
-class InstallCommand extends Command
+class InstallCommand extends ContainerAwareCommand 
 {
+
     protected function configure()
     {
         $this
@@ -36,13 +38,15 @@ class InstallCommand extends Command
 
         $output->writeln(sprintf('Installing backbone for bundle "<info>%s</info>"', $bundle->getName()));
 
-        $public_dir = $bundle->getPath(). '/Resources/public/js';
-
         if ($path = $input->getOption('path'))
             $public_dir = $path;
+        else
+            $public_dir = $bundle->getPath(). '/Resources/public/js';
+
+        $filesystem = new Filesystem(); 
 
         if (!is_dir($public_dir)) {
-            mkdir($public_dir, 0777, true);
+            $filesystem->mkdir($public_dir, 0777, true);
         } 
      
         // Create empty dirs
@@ -51,9 +55,8 @@ class InstallCommand extends Command
         foreach ($dirs as $dir)
          {
            if (!is_dir($public_dir. '/' .$dir)) {
-             mkdir($public_dir. '/'. $dir);
+             $filesystem->mkdir($public_dir. '/'. $dir);
              $output->writeln('<info>create</info> '. '/Resources/public/js/'. $dir);
-
            } 
          }
 
@@ -63,7 +66,7 @@ class InstallCommand extends Command
            foreach ($files as $file)
            {
              $path= $this->getApplication()->getKernel()->locateResource('@DevtimeBackboneBundle/Resources/files/js/'. $file); 
-             copy($path, $public_dir. '/'. $file); 
+             $filesystem->copy($path, $public_dir. '/'. $file); 
              $output->writeln('<info>create</info> '. '/Resources/public/js/'. $file);
            }
 
