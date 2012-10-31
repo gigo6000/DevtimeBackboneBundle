@@ -1,11 +1,11 @@
 # Backbone Bundle [![Build Status](https://secure.travis-ci.org/gigo6000/DevtimeBackboneBundle.png?branch=master)](http://travis-ci.org/gigo6000/DevtimeBackboneBundle)
 
-Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1
+Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1 (it probably works in older versions but not tested)
 
 Follow [@gigo6000 on Twitter](http://twitter.com/gigo6000). Tweet any questions or suggestions you have about the project.
 
 ## What you need 
-This bundle requires the use of Symfony 2.1.1  and greater
+This bundle requires the use of Symfony 2.1.1  and greater (it probably works in older versions but not tested)
 
 The latest versions of jquery, underscore.js and backbone.js are included. 
     
@@ -85,14 +85,14 @@ And you should see all the files now under your web dir ready for your template!
 After putting this in your template and reloading the page you should see a popup message saying: "Hellow from Backbone!"
 
 ## Scaffolding 
-BackboneBundle provides a simple generator to help you get started with your backbone.js objects 
+This bundle provides a simple generator to help you get started with your backbone.js classes. 
 The generator will only create client side code (javascript).
 
 ``` bash
 php app/console backbone:scaffold AcmeDemoBundle model
 ```
     
-This generator creates skeleton router, view, model and collection classes
+The scaffold generator creates skeleton router, view, model and collection classes
 
 ## Example Usage
 ``` bash
@@ -120,6 +120,10 @@ create /Resources/public/js/models/entry.js
 create /Resources/public/js/collections/entries.js
 create /Resources/public/js/routers/entries_router.js
 create /Resources/public/js/views/entries/entries_index.js
+```
+
+``` bash
+php app/console assets:install
 ```
 
 ### Output dir structure
