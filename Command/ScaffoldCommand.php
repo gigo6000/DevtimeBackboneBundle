@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the DevtimeBacboneBundle package.
+ * This file is part of the DevtimeBackboneBundle package.
  *
  * (c) Carlos Mafla <gigo6000@hotmail.com>
  *

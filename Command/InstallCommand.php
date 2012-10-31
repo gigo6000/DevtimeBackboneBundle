@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the DevtimeBacboneBundle package.
+ * This file is part of the DevtimeBackboneBundle package.
  *
  * (c) Carlos Mafla <gigo6000@hotmail.com>
  *
@@ -25,7 +25,7 @@ class InstallCommand extends ContainerAwareCommand
         $this
             ->setName('backbone:install')
             ->setDescription('Creates structure for your backbone.js project')
-            ->addArgument('bundle_name', InputArgument::REQUIRED, 'A bundle name, remember to use full namespace name ex: DevtimeBackboneBundle')
+            ->addArgument('bundle', InputArgument::REQUIRED, 'A bundle name, remember to use full namespace name ex: DevtimeBackboneBundle')
             ->addOption('path', null, InputOption::VALUE_REQUIRED, 'The path where to install backbone when it cannot be guessed')
 
         ;
@@ -34,7 +34,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $bundle = $this->getApplication()->getKernel()->getBundle($input->getArgument('bundle_name'));
+        $bundle = $this->getApplication()->getKernel()->getBundle($input->getArgument('bundle'));
 
         $output->writeln(sprintf('Installing backbone for bundle "<info>%s</info>"', $bundle->getName()));
 

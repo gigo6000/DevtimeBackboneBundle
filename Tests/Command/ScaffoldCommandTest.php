@@ -10,7 +10,7 @@
 
 namespace Devtime\Bundle\BackboneBundle\Tests\Command;
 
-use Devtime\BackboneBundle\Command\InstallCommand;
+use Devtime\BackboneBundle\Command\ScaffoldCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\Command\Command;
@@ -19,13 +19,13 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class InstallCommandTest extends \PHPUnit_Framework_TestCase 
+class ScaffoldCommandTest extends \PHPUnit_Framework_TestCase 
 {
 
 
     public function setUp()
     {   
-        $this->originDir = __DIR__ . '/../../Resources/files/js/';
+        $this->originDir = __DIR__ . '/../../Resources/files/js/templates';
         $this->targetDir = sys_get_temp_dir();
 
         $this->kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
@@ -36,51 +36,25 @@ class InstallCommandTest extends \PHPUnit_Framework_TestCase
 
         $this->kernel->expects($this->any())
             ->method('locateResource')
-            ->will($this->returnValue($this->originDir.'/backbone.js'));
-
-        $this->kernel->expects($this->any())
-            ->method('locateResource')
-            ->will($this->returnValue($this->originDir.'/underscore.js'));
-
-        $this->kernel->expects($this->any())
-            ->method('locateResource')
-            ->will($this->returnValue($this->originDir.'/app.js'));
-
+            ->will($this->returnValue($this->originDir.'/model.js'));
     }  
 
-    public function testInstallCommand()
+    public function testScaffoldCommand()
     {
 
         $application = new Application($this->kernel);
-        $application->add(new InstallCommand());
+        $application->add(new ScaffoldCommand());
 
-        $command = $application->find('backbone:install');
+        $command = $application->find('backbone:scaffold');
         $commandTester = new CommandTester($command);
 
         $commandTester->execute(
-            array('command' => $command->getName(),'bundle' => 'AcmeDemoBundle')
+            array('command' => $command->getName(),'bundle' => 'AcmeDemoBundle', 'entity' => 'entry')
         );
 
         $this->assertRegExp('/create/', $commandTester->getDisplay());
 
     }
-
-    public function testInstallCommandWithPath()
-    {   
-
-        $application = new Application($this->kernel);
-        $application->add(new InstallCommand());
-
-        $command = $application->find('backbone:install');
-        $commandTester = new CommandTester($command);
-
-        $commandTester->execute(
-            array('command' => $command->getName(),'bundle' => 'AcmeDemoBundle', '--path' => $this->targetDir)
-        );  
-
-        $this->assertRegExp('/create/', $commandTester->getDisplay());
-
-    }  
 
     protected function getBundle()
     {   
