@@ -99,5 +99,3 @@ class InstallCommandTest extends \PHPUnit_Framework_TestCase
     }   
 
 }
-
-

@@ -24,9 +24,12 @@ class InstallCommand extends ContainerAwareCommand
     {
         $this
             ->setName('backbone:install')
-            ->setDescription('Creates structure for your backbone.js project')
+            ->setDescription('Creates basic structure for your backbone.js project')
             ->addArgument('bundle', InputArgument::REQUIRED, 'A bundle name, remember to use full namespace name ex: DevtimeBackboneBundle')
             ->addOption('path', null, InputOption::VALUE_REQUIRED, 'The path where to install backbone when it cannot be guessed')
+            ->addOption('no-jquery', null, InputOption::VALUE_NONE, 'Don\'t include jquery lib file')
+            ->addOption('no-backbone', null, InputOption::VALUE_NONE, 'Don\'t include backbone.js lib file')
+            ->addOption('no-underscore', null, InputOption::VALUE_NONE, 'Don\'t include underscore lib file')
 
         ;
     }
@@ -60,19 +63,33 @@ class InstallCommand extends ContainerAwareCommand
            } 
          }
 
-        // Copy files
-        try {
-           $files = array('backbone.js', 'underscore.js', 'app.js', 'jquery.min.js');
-           foreach ($files as $file)
-           {
-             $path= $this->getApplication()->getKernel()->locateResource('@DevtimeBackboneBundle/Resources/files/js/'. $file); 
-             $filesystem->copy($path, $public_dir. '/'. $file); 
-             $output->writeln('<info>create</info> '. '/Resources/public/js/'. $file);
-           }
+         // Copy files
+         $this->copyFile('app.js', $public_dir, $filesystem, $output);
 
-        } catch (\InvalidArgumentException $e) {
-           echo $e;
-        } 
+         if (!$input->getOption('no-jquery')) 
+            $this->copyFile('jquery.min.js', $public_dir, $filesystem, $output);
+
+         if (!$input->getOption('no-backbone')) 
+            $this->copyFile('backbone.js', $public_dir, $filesystem, $output);
+
+         if (!$input->getOption('no-underscore')) 
+            $this->copyFile('underscore.js', $public_dir, $filesystem, $output);
       
+    }
+
+
+    /** 
+     * Copies a file to the target bundle public dir
+     *
+     * @param string $file The file name
+     * @param string $public_dir The target bundle public dir path
+     * @param Filesystem $filesystem The filesystem 
+     * @param OutputInterface $output The command output
+     */
+    private function copyFile($file, $public_dir, Filesystem $filesystem, OutputInterface $output)
+    {
+         $path= $this->getApplication()->getKernel()->locateResource('@DevtimeBackboneBundle/Resources/files/js/'. $file);
+         $filesystem->copy($path, $public_dir. '/'. $file);
+         $output->writeln('<info>create</info> '. '/Resources/public/js/'. $file);
     }
 }
