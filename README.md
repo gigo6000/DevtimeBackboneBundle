@@ -48,7 +48,7 @@ public function registerBundles()
 }
 ```
 
-### Layout 
+## Layout / Directory structure 
 
 ``` bash
 php app/console backbone:install AcmeDemoBundle
@@ -144,6 +144,12 @@ src/Acme/DemoBundle/Resources/public/js/
     `-- entries
         `-- entries_index.js
 ```
+
+### Install without javascript assets
+``` bash
+php app/console backbone:install DevtimeRafflerBundle --no-underscore --no-backbone --no-jquery
+```
+
 ## Sample App
 
 This simple app was created with this bundle: https://github.com/gigo6000/DevtimeRafflerBundle
