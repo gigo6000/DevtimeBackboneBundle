@@ -50,6 +50,8 @@ public function registerBundles()
 
 ## Layout / Directory structure 
 
+Create the basic directory structure for your backbone files. Remember that you only need to this once!.
+
 ``` bash
 php app/console backbone:install AcmeDemoBundle
 ```
@@ -83,6 +85,7 @@ And you should see all the files now under your web dir ready for your template!
         {% endblock %}
 ```
 After putting this in your template and reloading the page you should see a popup message saying: "Hellow from Backbone!"
+
 
 ## Scaffolding 
 This bundle provides a simple generator to help you get started with your backbone.js classes. 
@@ -149,6 +152,25 @@ src/Acme/DemoBundle/Resources/public/js/
 ``` bash
 php app/console backbone:install DevtimeRafflerBundle --no-underscore --no-backbone --no-jquery
 ```
+
+### Using another jquery version or CDN hosted jquery
+
+If you want to use your own jquery lib, just remove the jquery line in your template:
+
+``` 
+<script src="{{ asset('/bundles/acmedemo/js/jquery.min.js') }}" type="text/javascript"></script>
+``` 
+
+And make sure the other lines are AFTER your jquery lib is included:
+
+``` 
+        {% block javascripts %}
+            <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/backbone.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('/bundles/acmedemo/js/app.js') }}" type="text/javascript"></script>
+        {% endblock %}
+``` 
 
 ## Sample App
 
