@@ -1,6 +1,6 @@
 # Backbone Bundle [![Build Status](https://secure.travis-ci.org/gigo6000/DevtimeBackboneBundle.png?branch=master)](http://travis-ci.org/gigo6000/DevtimeBackboneBundle)
 
-Easily setup and use backbone.js (0.9.2) with Symfony 2.1.1 (it probably works in older versions but not tested)
+Easily setup and use backbone.js with Symfony 2.1.1 and greater (it probably works in older versions but not tested)
 
 Follow [@gigo6000 on Twitter](http://twitter.com/gigo6000). Tweet any questions or suggestions you have about the project.
 
