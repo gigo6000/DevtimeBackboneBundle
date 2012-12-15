@@ -75,7 +75,7 @@ php app/console assets:install
 ```
 And you should see all the files now under your web dir ready for your template!  `web/bundles/acmedemo/js/`
 
-``` 
+```jinja
 // src/Acme/DemoBundle/Resources/views/layout.html.twig
         {% block javascripts %}
             <script src="{{ asset('/bundles/acmedemo/js/jquery.min.js') }}" type="text/javascript"></script>
@@ -163,7 +163,7 @@ If you want to use your own jquery lib, just remove the jquery line in your temp
 
 And make sure the other lines are AFTER your jquery lib is included:
 
-``` 
+```jinja
         {% block javascripts %}
             <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
             <script src="{{ asset('/bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
