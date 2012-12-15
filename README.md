@@ -5,7 +5,7 @@ Easily setup and use backbone.js with Symfony 2.1.1 and greater (it probably wor
 Follow [@gigo6000 on Twitter](http://twitter.com/gigo6000). Tweet any questions or suggestions you have about the project.
 
 ## What you need 
-This bundle requires the use of Symfony 2.1.1  and greater (it probably works in older versions but not tested)
+This bundle requires Symfony 2.1.1 or greater (it probably works in older versions but not tested)
 
 The latest versions of jquery, underscore.js and backbone.js are included. 
     
