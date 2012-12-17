@@ -35,7 +35,7 @@ Composer will install the bundle to your project's `vendor/devtime` directory.
 http://getcomposer.org/ or just run the following command:
 
 ``` bash
-    curl -s https://getcomposer.org/installer | php
+curl -s https://getcomposer.org/installer | php
 ```
 
 ### Step 2: Enable the bundle
