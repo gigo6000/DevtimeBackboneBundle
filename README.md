@@ -23,13 +23,20 @@ Add DevtimeBackboneBundle in your composer.json:
 }
 ```
 
-Now tell composer to download the bundle by running the command:
+Now tell *composer to download the bundle by running the command:
 
 ``` bash
 $ php composer.phar update devtime/backbone-bundle
 ```
 
 Composer will install the bundle to your project's `vendor/devtime` directory.
+
+* Note: If you don't have Composer yet, download it following the instructions on
+http://getcomposer.org/ or just run the following command:
+
+``` bash
+    curl -s https://getcomposer.org/installer | php
+```
 
 ### Step 2: Enable the bundle
 
