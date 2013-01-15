@@ -57,7 +57,7 @@ public function registerBundles()
 
 ## Layout / Directory structure 
 
-Create the basic directory structure for your backbone files. Remember that you only need to this once!.
+Create the basic directory structure for your backbone files. Remember that you only need to do this once!.
 
 ``` bash
 php app/console backbone:install AcmeDemoBundle
