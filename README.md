@@ -18,7 +18,7 @@ Add DevtimeBackboneBundle in your composer.json:
 ```js
 {
     "require": {
-        "devtime/backbone-bundle": "*"
+        "devtime/backbone-bundle": "dev-master"
     }
 }
 ```
