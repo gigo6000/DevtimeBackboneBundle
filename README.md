@@ -171,12 +171,16 @@ If you want to use your own jquery lib, just remove the jquery line in your temp
 And make sure the other lines are AFTER your jquery lib is included:
 
 ```jinja
+{% block head %}
+...
         {% block javascripts %}
             <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
             <script src="{{ asset('/bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/bundles/acmedemo/js/backbone.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/bundles/acmedemo/js/app.js') }}" type="text/javascript"></script>
         {% endblock %}
+{% endblock %}
+        
 ``` 
 
 ## Sample App
