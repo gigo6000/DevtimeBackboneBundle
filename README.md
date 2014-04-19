@@ -85,10 +85,10 @@ And you should see all the files now under your web dir ready for your template!
 ```jinja
 // src/Acme/DemoBundle/Resources/views/layout.html.twig
         {% block javascripts %}
-            <script src="{{ asset('/bundles/acmedemo/js/jquery.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/bundles/acmedemo/js/backbone.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/bundles/acmedemo/js/app.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/acmedemo/js/jquery.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/acmedemo/js/underscore.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/acmedemo/js/backbone.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/acmedemo/js/app.js') }}" type="text/javascript"></script>
         {% endblock %}
 ```
 After putting this in your template and reloading the page you should see a popup message saying: "Hellow from Backbone!"
