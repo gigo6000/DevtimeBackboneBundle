@@ -1,4 +1,9 @@
-# Backbone Bundle [![Build Status](https://secure.travis-ci.org/gigo6000/DevtimeBackboneBundle.png?branch=master)](http://travis-ci.org/gigo6000/DevtimeBackboneBundle)
+# Backbone Bundle 
+
+[![Build Status](https://secure.travis-ci.org/gigo6000/DevtimeBackboneBundle.png?branch=master)](http://travis-ci.org/gigo6000/DevtimeBackboneBundle)
+[![Latest Stable Version](https://poser.pugx.org/devtime/backbone-bundle/v/stable)](https://packagist.org/packages/devtime/backbone-bundle) 
+[![Total Downloads](https://poser.pugx.org/devtime/backbone-bundle/downloads)](https://packagist.org/packages/devtime/backbone-bundle) 
+[![License](https://poser.pugx.org/devtime/backbone-bundle/license)](https://packagist.org/packages/devtime/backbone-bundle)
 
 Easily setup and use backbone.js with Symfony 2.1.1 and greater (it probably works in older versions but not tested)
 
