@@ -35,6 +35,10 @@ class ScaffoldCommandTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($this->getBundle()));
 
         $this->kernel->expects($this->any())
+            ->method('getBundles')
+            ->will($this->returnValue(array($this->getBundle())));
+
+        $this->kernel->expects($this->any())
             ->method('locateResource')
             ->will($this->returnValue($this->originDir.'/model.js'));
     }  
